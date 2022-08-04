@@ -1,0 +1,11 @@
+.container
+{
+    display: flex;
+    justify-content: center;
+}
+
+.text_message
+{
+    width: 15em;
+    height: 15em;
+}
