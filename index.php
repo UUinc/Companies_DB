@@ -4,6 +4,45 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css" />
         <title>Companies DB</title>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script type="text/javascript">
+
+            var file;
+            var dataUri;
+
+            function sendEmail() {
+                alert(file.name);
+                alert(dataUri);
+                Email.send({
+                    SecureToken : "c7efcb51-621b-4479-88b2-698d062629be",
+                    To : document.getElementById("to_email").value,
+                    From : document.getElementById("from_email").value,
+                    Subject : document.getElementById("subject").value,
+                    Body : document.getElementById("message").value,
+                    Attachments : [
+                        {
+                            name : file.name,
+                            data : dataUri
+                        }]
+                }).then(function (message) {
+                    alert("Mail has been sent successfully")
+                });
+            }
+            
+            //upload attachment
+            function uploadFileToServer()
+            {
+                file = event.srcElement.files[0];
+                var reader = new FileReader();
+                reader.readAsBinaryString(file);
+                reader.onload = function () {
+                    dataUri = "data:" + file.type + ";base64," + btoa(reader.result);
+                };
+                reader.onerror = function() {
+                    console.log('there are some problems');
+                };
+            }
+        </script>
     </head>
     <body>
         <?php require_once 'connect.php'; ?>
@@ -11,6 +50,7 @@
         <div class="container">
             <div>
                 <form action="#" method="post">
+                    <b>Industry:</b>
                     <select id="industry" name="industry">
                         <option value="1">All</option>
                         <?php
@@ -26,6 +66,7 @@
                             }
                         ?>
                     </select> 
+                    <b>City:</b>
                     <select id="city" name="city">
                         <option value="1">All</option>
                         <?php
@@ -100,7 +141,7 @@
                 }
 
                 $result = mysqli_query($link, $sql) or die(mysqli_error($link));
-                echo "<table>";
+                echo "<table class=\"table_deco\">";
                 //header of the table
                 echo "<tr>
                         <th>Company Name</th>
@@ -144,23 +185,36 @@
                 <div class="container">
                     <div>
                         <h2>Send Email</h2>
-                        <textarea id="message" placeholder="message here..." cols="100" rows="20"></textarea>
+
+                        <table class="email_form">
+                            <tr>
+                                <td>From:</td>
+                                <td><input id="from_email" type="email" name="emailFrom" placeholder="abc@test.com"/></td>
+                            </tr>
+                            <tr>
+                                <td>To:</td>
+                                <td><input id="to_email" type="email" name="emailTo" placeholder="xyz@test.com"/></td>
+                            </tr>
+                            <tr>
+                                <td>Subject:</td>
+                                <td><input id="subject" type="text" name="subject" placeholder="Contact.."/></td>
+                            </tr>
+                            <tr>
+                                <td>Attachment:</td>
+                                <td><input id="myFile" type="file" name="filename" onchange="uploadFileToServer()"></td>
+                            </tr>
+                        </table>
+                     
+                        <textarea id="message" placeholder="message here... (add your CV link)" cols="100" rows="20"></textarea>
                     </div>
                 </div>
                 <br/>
                 <div class="container">
                     <div>
-                        <button name="send_btn" onclick="SendEmail()">send</button>
+                        <button name="send_btn" onclick="sendEmail()">send</button>
                     </div>
                 </div>
             </div>
         </div>
-        <script>
-            var textarea = document.getElementById("message");
-            function SendEmail()
-            {
-                alert(textarea.value);
-            }
-        </script>
     </body>
 </html>

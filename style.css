@@ -25,7 +25,7 @@ h1, h2
     text-align: center;
 }
 
-table
+table.table_deco
 {
     border-collapse: collapse;
     width: 100%;
@@ -39,7 +39,7 @@ td, th
     padding: 8px;
 }
   
-tr:nth-child(even) 
+.table_deco tr:nth-child(even) 
 {
     background-color: #dddddd;
 }
@@ -54,4 +54,9 @@ button
     width: 6em;
     height: 2em;
     border-radius: 5px;
+}
+
+.email_form td, th 
+{
+    border: 0px;
 }
