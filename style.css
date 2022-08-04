@@ -65,3 +65,8 @@ button
 {
     border: 0px;
 }
+
+.grad
+{
+    background-image: linear-gradient(123deg, rgba(255,0,0,0), rgb(35, 0, 117));
+}

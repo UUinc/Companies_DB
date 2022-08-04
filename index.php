@@ -214,7 +214,7 @@
                             </tr>
                         </table>
                      
-                        <textarea id="message" placeholder="message here... (add your CV link)" cols="100" rows="20"></textarea>
+                        <textarea id="message" placeholder="Write your email here..." cols="100" rows="20"></textarea>
                     </div>
                 </div>
                 <br/>
