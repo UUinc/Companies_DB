@@ -48,3 +48,10 @@ textarea
 {
     margin: 0px 10px 0px 5px;
 }
+
+button
+{
+    width: 6em;
+    height: 2em;
+    border-radius: 5px;
+}

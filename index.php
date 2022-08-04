@@ -6,15 +6,100 @@
         <title>Companies DB</title>
     </head>
     <body>
+        <?php require_once 'connect.php'; ?>
+        <h1><b>Companies Database</b></h1>
         <div class="container">
             <div>
-                <h1><b>Companies Database</b></h1>
-                
-                <?php 
-                require_once 'connect.php';
-                $sql = "SELECT * FROM companies";
-                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+                <form action="#" method="post">
+                    <select id="industry" name="industry">
+                        <option value="1">All</option>
+                        <?php
+                            //get the name of the industries
+                            $sql = "SELECT * FROM industry";
+                            $result = mysqli_query($link, $sql) or die(mysqli_error($link));
 
+                            $index = 1;
+                            while($row = mysqli_fetch_array($result))
+                            {
+                                $index++;
+                                echo "<option value=\"".$index."\">".$row['industry_name']."</option>";
+                            }
+                        ?>
+                    </select> 
+                    <select id="city" name="city">
+                        <option value="1">All</option>
+                        <?php
+                            //get the name of the cities
+                            $sql = "SELECT * FROM city";
+                            $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+                            
+                            $index = 1;
+                            while($row = mysqli_fetch_array($result))
+                            {
+                                $index++;
+                                echo "<option value=\"".$index."\">".$row['city_name']."</option>";
+                            }
+                            ?>
+                    </select> 
+
+                    <input type="submit" name="filter_btn" value="filter" />
+                </form>
+            </div>
+        </div>
+        <br/>
+        <div class="container">
+            <div>
+                <?php
+                if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['filter_btn']))
+                {
+                    GetIndustry();
+                    GetCity();
+                }
+                function GetIndustry()
+                {
+                    if(isset($_POST['filter_btn']))
+                    {
+                        $industry = $_POST['industry']; 
+                        return $industry;         
+                    }
+                    
+                }
+                function GetCity()
+                {
+                    if(isset($_POST['filter_btn']))
+                    {
+                        $city = $_POST['city']; 
+                        return $city;               
+                    }
+                }
+
+                $industry = GetIndustry() - 1;
+                $city = GetCity() - 1;
+
+                //preserve set selected option
+                echo "<script>
+                        document.getElementById(\"industry\").value = ".($industry+1).";
+                        document.getElementById(\"city\").value = ".($city+1).";
+                      </script>";
+                
+                if($industry == 0 and $city == 0)
+                {
+                    $sql = "SELECT * FROM companies";
+                }
+                elseif($industry == 0)
+                {
+                    $sql = "SELECT * FROM companies WHERE city_id = ".$city;
+                }
+                elseif($city == 0)
+                {
+                    $sql = "SELECT * FROM companies WHERE industry_id = ".$industry;
+                }
+                else
+                {
+                    $sql = "SELECT * FROM companies WHERE industry_id = ".$industry." and city_id = ".$city;
+                }
+
+                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
                 echo "<table>";
                 //header of the table
                 echo "<tr>
@@ -52,45 +137,30 @@
                 echo "</table>";
                 ?>
                 
-                <br/><br/>
+                <br/>
+                <hr/>
+                <br/>
 
                 <div class="container">
                     <div>
                         <h2>Send Email</h2>
-                        <textarea name="message" placeholder="message here..." cols="100" rows="20"></textarea>
+                        <textarea id="message" placeholder="message here..." cols="100" rows="20"></textarea>
                     </div>
                 </div>
-                    <br/>
+                <br/>
                 <div class="container">
                     <div>
-                        <select name="industry">
-                            <?php
-                                //get the name of the industries
-                                $sql = "SELECT * FROM industry";
-                                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
-
-                                while($row = mysqli_fetch_array($result))
-                                {
-                                    echo "<option>".$row['industry_name']."</option>";
-                                }
-                            ?>
-                        </select> 
-                        <select name="city">
-                            <?php
-                                //get the name of the cities
-                                $sql = "SELECT * FROM city";
-                                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
-
-                                while($row = mysqli_fetch_array($result))
-                                {
-                                    echo "<option>".$row['city_name']."</option>";
-                                }
-                            ?>
-                        </select> 
-                        <button name="send" type="submit">send</button>
+                        <button name="send_btn" onclick="SendEmail()">send</button>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            var textarea = document.getElementById("message");
+            function SendEmail()
+            {
+                alert(textarea.value);
+            }
+        </script>
     </body>
 </html>
