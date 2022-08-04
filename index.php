@@ -11,12 +11,12 @@
             var dataUri;
 
             function sendEmail() {
-                alert(file.name);
-                alert(dataUri);
                 Email.send({
-                    SecureToken : "c7efcb51-621b-4479-88b2-698d062629be",
+                    Host : "smtp.elasticemail.com",
+                    Username : document.getElementById("username").value,
+                    Password : document.getElementById("password").value,
                     To : document.getElementById("to_email").value,
-                    From : document.getElementById("from_email").value,
+                    From : document.getElementById("username").value,
                     Subject : document.getElementById("subject").value,
                     Body : document.getElementById("message").value,
                     Attachments : [
@@ -185,11 +185,20 @@
                 <div class="container">
                     <div>
                         <h2>Send Email</h2>
+                        <h5>To be able to send emails you have to sign in <a href="https://www.smtpjs.com/" target="_blank">smtpJS</a></h5>
+                        <h6>For a small tutorial on how to sign in check out this link <a href="tutorial.php">click here</a></h5>
 
                         <table class="email_form">
                             <tr>
-                                <td>From:</td>
-                                <td><input id="from_email" type="email" name="emailFrom" placeholder="abc@test.com"/></td>
+                                <td>Username:</td>
+                                <td><input id="username" type="email" name="emailFrom" placeholder="abc@test.com"/></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><input id="password" type="password" name="emailTo" placeholder="**********9FC15"/></td>
+                            </tr>
+                            <tr>
+                                <td><hr/></td>
                             </tr>
                             <tr>
                                 <td>To:</td>
