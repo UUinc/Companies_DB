@@ -54,20 +54,42 @@
                 
                 <br/><br/>
 
-                <select name="cities">
-                    <option>Rabat</option>
-                    <option>Casablanca</option>
-                    <option>Marrakech</option>
-                </select> 
-                <select name="services">
-                    <option>Development</option>
-                    <option>Food</option>
-                    <option>Delivery</option>
-                </select> 
-                <br/>
-                <textarea name="message" placeholder="message here..." cols="50" rows="10"></textarea>
-                <br/>
-                <button name="send" type="submit">send</button>
+                <div class="container">
+                    <div>
+                        <h2>Send Email</h2>
+                        <textarea name="message" placeholder="message here..." cols="100" rows="20"></textarea>
+                    </div>
+                </div>
+                    <br/>
+                <div class="container">
+                    <div>
+                        <select name="industry">
+                            <?php
+                                //get the name of the industries
+                                $sql = "SELECT * FROM industry";
+                                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+
+                                while($row = mysqli_fetch_array($result))
+                                {
+                                    echo "<option>".$row['industry_name']."</option>";
+                                }
+                            ?>
+                        </select> 
+                        <select name="city">
+                            <?php
+                                //get the name of the cities
+                                $sql = "SELECT * FROM city";
+                                $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+
+                                while($row = mysqli_fetch_array($result))
+                                {
+                                    echo "<option>".$row['city_name']."</option>";
+                                }
+                            ?>
+                        </select> 
+                        <button name="send" type="submit">send</button>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

@@ -9,16 +9,27 @@
     justify-content: center;
 }
 
+.mailContainer
+{
+    align-items: center;
+}
+
 .text_message
 {
     width: 15em;
     height: 15em;
 }
 
+h1, h2
+{
+    text-align: center;
+}
+
 table
 {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 td, th 
@@ -31,4 +42,9 @@ td, th
 tr:nth-child(even) 
 {
     background-color: #dddddd;
+}
+
+textarea
+{
+    margin: 0px 10px 0px 5px;
 }
