@@ -12,39 +12,46 @@
 
             function sendEmail() 
             {
-                //send a regular email without attachment
-                if(file == null)
+                var emails = document.getElementsByClassName("company_email");
+                for(let i=0; i<emails.length; i++)
                 {
-                    Email.send({
-                    Host : "smtp.elasticemail.com",
-                    Username : document.getElementById("username").value,
-                    Password : document.getElementById("password").value,
-                    To : document.getElementById("to_email").value,
-                    From : document.getElementById("username").value,
-                    Subject : document.getElementById("subject").value,
-                    Body : document.getElementById("message").value
-                    }).then(function (message) {
-                        alert("Mail has been sent successfully")
-                    });
-                }
-                else //send email with attachment
-                {
-                    Email.send({
-                    Host : "smtp.elasticemail.com",
-                    Username : document.getElementById("username").value,
-                    Password : document.getElementById("password").value,
-                    To : document.getElementById("to_email").value,
-                    From : document.getElementById("username").value,
-                    Subject : document.getElementById("subject").value,
-                    Body : document.getElementById("message").value,
-                    Attachments : [
+                    if(emails[i].innerHTML != "")
+                    {
+                        //send a regular email without attachment
+                        if(file == null)
                         {
-                            name : file.name,
-                            data : dataUri
-                        }]
-                    }).then(function (message) {
-                        alert("Mail has been sent successfully")
-                    });
+                            Email.send({
+                            Host : "smtp.elasticemail.com",
+                            Username : document.getElementById("username").value,
+                            Password : document.getElementById("password").value,
+                            To : emails[i].innerHTML,
+                            From : document.getElementById("username").value,
+                            Subject : document.getElementById("subject").value,
+                            Body : document.getElementById("message").value
+                            }).then(function (message) {
+                                alert("Mail has been sent successfully")
+                            });
+                        }
+                        else //send email with attachment
+                        {
+                            Email.send({
+                            Host : "smtp.elasticemail.com",
+                            Username : document.getElementById("username").value,
+                            Password : document.getElementById("password").value,
+                            To : emails[i].innerHTML,
+                            From : document.getElementById("username").value,
+                            Subject : document.getElementById("subject").value,
+                            Body : document.getElementById("message").value,
+                            Attachments : [
+                                {
+                                    name : file.name,
+                                    data : dataUri
+                                }]
+                            }).then(function (message) {
+                                alert("Mail has been sent successfully")
+                            });
+                        }
+                    }
                 }
             }
             
@@ -189,7 +196,7 @@
                     echo "<td>".$row['company_name']."</td>";
                     echo "<td>".$industry['industry_name']."</td>";
                     echo "<td>".$city['city_name']."</td>";
-                    echo "<td>".$row['email']."</td>";
+                    echo "<td class=\"company_email\">".$row['email']."</td>";
                     echo "<td>".$row['adress']."</td>";
                     echo "<td>".$row['telephone']."</td>";
                     echo "<td>".$row['website']."</td>";
@@ -219,10 +226,6 @@
                             </tr>
                             <tr>
                                 <td><hr/></td>
-                            </tr>
-                            <tr>
-                                <td>To:</td>
-                                <td><input id="to_email" type="email" name="emailTo" placeholder="xyz@test.com"/></td>
                             </tr>
                             <tr>
                                 <td>Subject:</td>
