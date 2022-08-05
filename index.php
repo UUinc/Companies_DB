@@ -12,11 +12,17 @@
 
             function sendEmail() 
             {
+                var email_success_counter = 0;
+                var emails_length = 0;
+
                 var emails = document.getElementsByClassName("company_email");
                 for(let i=0; i<emails.length; i++)
                 {
                     if(emails[i].innerHTML != "")
                     {
+                        //count how much emails exist
+                        emails_length++;
+
                         //send a regular email without attachment
                         if(file == null)
                         {
@@ -29,7 +35,8 @@
                             Subject : document.getElementById("subject").value,
                             Body : document.getElementById("message").value
                             }).then(function (message) {
-                                alert("Mail has been sent successfully")
+                                email_success_counter++;
+                                showSuccessMessage(email_success_counter, emails_length);
                             });
                         }
                         else //send email with attachment
@@ -48,7 +55,8 @@
                                     data : dataUri
                                 }]
                             }).then(function (message) {
-                                alert("Mail has been sent successfully")
+                                email_success_counter++;
+                                showSuccessMessage(email_success_counter, emails_length);
                             });
                         }
                     }
@@ -67,6 +75,27 @@
                 reader.onerror = function() {
                     console.log('there are some problems');
                 };
+            }
+
+            //show success message
+            function showSuccessMessage(email_success_counter, emails_length)
+            {
+                hideSuccessMessage();
+                
+                var para = document.createElement("p");
+                para.className = "message-output";
+                para.innerHTML = "email has been sent to "+email_success_counter+"/"+emails_length;
+                document.getElementById("success_message").appendChild(para);
+            }
+
+            function hideSuccessMessage()
+            {
+                //look if the child already exist
+                var element = document.getElementsByClassName("message-output")[0];
+                if(element != null)
+                {
+                    element.remove();
+                }
             }
         </script>
     </head>
@@ -237,7 +266,8 @@
                             </tr>
                         </table>
                      
-                        <textarea id="message" placeholder="Write your email here..." cols="100" rows="20"></textarea>
+                        <div id="success_message"></div>
+                        <textarea id="message" placeholder="Write your email here..." cols="100" rows="20" oninput="hideSuccessMessage()"></textarea>
                     </div>
                 </div>
                 <br/>
