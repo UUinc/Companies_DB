@@ -75,3 +75,9 @@ img
 {
     border: 1px solid black;
 }
+
+.message-output
+{
+    text-align: center;
+    color: rgb(0, 145, 0);
+}

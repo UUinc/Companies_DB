@@ -10,8 +10,26 @@
             var file;
             var dataUri;
 
-            function sendEmail() {
-                Email.send({
+            function sendEmail() 
+            {
+                //send a regular email without attachment
+                if(file == null)
+                {
+                    Email.send({
+                    Host : "smtp.elasticemail.com",
+                    Username : document.getElementById("username").value,
+                    Password : document.getElementById("password").value,
+                    To : document.getElementById("to_email").value,
+                    From : document.getElementById("username").value,
+                    Subject : document.getElementById("subject").value,
+                    Body : document.getElementById("message").value
+                    }).then(function (message) {
+                        alert("Mail has been sent successfully")
+                    });
+                }
+                else //send email with attachment
+                {
+                    Email.send({
                     Host : "smtp.elasticemail.com",
                     Username : document.getElementById("username").value,
                     Password : document.getElementById("password").value,
@@ -24,9 +42,10 @@
                             name : file.name,
                             data : dataUri
                         }]
-                }).then(function (message) {
-                    alert("Mail has been sent successfully")
-                });
+                    }).then(function (message) {
+                        alert("Mail has been sent successfully")
+                    });
+                }
             }
             
             //upload attachment
