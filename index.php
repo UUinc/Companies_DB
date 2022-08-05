@@ -16,9 +16,26 @@
                 var emails_length = 0;
 
                 var emails = document.getElementsByClassName("company_email");
-                for(let i=0; i<emails.length; i++)
+                
+                for(let i=0; i<=emails.length; i++)
                 {
-                    if(emails[i].innerHTML != "")
+                    var email;
+                    //this piece of line is to send an email to the sender
+                    //to be asure of the email was sent successully
+                    if(i == emails.length)
+                    {
+                        email = document.getElementById("username").value;
+
+                        //don't count your email
+                        email_success_counter--;
+                        emails_length--;
+                    }
+                    else
+                    {
+                        email = emails[i].innerHTML;
+                    }
+
+                    if(email != "")
                     {
                         //count how much emails exist
                         emails_length++;
@@ -30,7 +47,7 @@
                             Host : "smtp.elasticemail.com",
                             Username : document.getElementById("username").value,
                             Password : document.getElementById("password").value,
-                            To : emails[i].innerHTML,
+                            To : email,
                             From : document.getElementById("username").value,
                             Subject : document.getElementById("subject").value,
                             Body : document.getElementById("message").value
@@ -45,7 +62,7 @@
                             Host : "smtp.elasticemail.com",
                             Username : document.getElementById("username").value,
                             Password : document.getElementById("password").value,
-                            To : emails[i].innerHTML,
+                            To : email,
                             From : document.getElementById("username").value,
                             Subject : document.getElementById("subject").value,
                             Body : document.getElementById("message").value,
@@ -258,11 +275,11 @@
                             </tr>
                             <tr>
                                 <td>Subject:</td>
-                                <td><input id="subject" type="text" name="subject" placeholder="Contact.."/></td>
+                                <td><input id="subject" type="text" name="subject" placeholder="Contact.." onchange="hideSuccessMessage()"/></td>
                             </tr>
                             <tr>
                                 <td>Attachment:</td>
-                                <td><input id="myFile" type="file" name="filename" onchange="uploadFileToServer()"></td>
+                                <td><input id="myFile" type="file" name="filename" onchange="uploadFileToServer()" onchange="hideSuccessMessage()"></td>
                             </tr>
                         </table>
                      
@@ -273,7 +290,7 @@
                 <br/>
                 <div class="container">
                     <div>
-                        <button name="send_btn" onclick="sendEmail()">send</button>
+                        <button name="send_btn" onclick="sendEmail()" onclick="hideSuccessMessage()">send</button>
                     </div>
                 </div>
             </div>
