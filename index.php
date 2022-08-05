@@ -6,7 +6,7 @@
         <title>Companies DB</title>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script type="text/javascript">
-
+            
             var file;
             var dataUri;
 
@@ -124,33 +124,29 @@
                 <form action="#" method="post">
                     <b>Industry:</b>
                     <select id="industry" name="industry">
-                        <option value="1">All</option>
+                        <option value="0">All</option>
                         <?php
                             //get the name of the industries
-                            $sql = "SELECT * FROM industry";
+                            $sql = "SELECT * FROM industry ORDER by industry_name";
                             $result = mysqli_query($link, $sql) or die(mysqli_error($link));
 
-                            $index = 1;
                             while($row = mysqli_fetch_array($result))
                             {
-                                $index++;
-                                echo "<option value=\"".$index."\">".$row['industry_name']."</option>";
+                                echo "<option value=\"".$row['industry_id']."\">".$row['industry_name']."</option>";
                             }
                         ?>
                     </select> 
                     <b>City:</b>
                     <select id="city" name="city">
-                        <option value="1">All</option>
+                        <option value="0">All</option>
                         <?php
                             //get the name of the cities
-                            $sql = "SELECT * FROM city";
+                            $sql = "SELECT * FROM city ORDER by city_name";
                             $result = mysqli_query($link, $sql) or die(mysqli_error($link));
                             
-                            $index = 1;
                             while($row = mysqli_fetch_array($result))
                             {
-                                $index++;
-                                echo "<option value=\"".$index."\">".$row['city_name']."</option>";
+                                echo "<option value=\"".$row['city_id']."\">".$row['city_name']."</option>";
                             }
                             ?>
                     </select> 
@@ -175,7 +171,7 @@
                         $industry = $_POST['industry']; 
                         return $industry;         
                     }
-                    return 1;
+                    return 0;
                 }
                 function GetCity()
                 {
@@ -184,24 +180,25 @@
                         $city = $_POST['city']; 
                         return $city;               
                     }
-                    return 1;
+                    return 0;
                 }
                 
-                $industry = GetIndustry() - 1;
-                $city = GetCity() - 1;
+                $industry = GetIndustry();
+                $city = GetCity();
 
                 //preserve set selected option
                 echo "<script>
-                        document.getElementById(\"industry\").value = ".($industry+1).";
-                        document.getElementById(\"city\").value = ".($city+1).";
+                        document.getElementById(\"industry\").value = ".$industry.";
+                        document.getElementById(\"city\").value = ".$city.";
                       </script>";
-                
+
                 if($industry == 0 and $city == 0)
                 {
                     $sql = "SELECT * FROM companies";
                 }
                 elseif($industry == 0)
                 {
+
                     $sql = "SELECT * FROM companies WHERE city_id = ".$city;
                 }
                 elseif($city == 0)
