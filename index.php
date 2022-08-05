@@ -103,7 +103,7 @@
                         $industry = $_POST['industry']; 
                         return $industry;         
                     }
-                    
+                    return 1;
                 }
                 function GetCity()
                 {
@@ -112,8 +112,9 @@
                         $city = $_POST['city']; 
                         return $city;               
                     }
+                    return 1;
                 }
-
+                
                 $industry = GetIndustry() - 1;
                 $city = GetCity() - 1;
 
