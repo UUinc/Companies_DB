@@ -38,7 +38,7 @@
                 //test if login info is correct 
                 $sql = "SELECT count(*) FROM login WHERE user = ? And password = ?";
                 $stmt = mysqli_prepare($link,$sql);
-                $stmt->bind_param("si", $user, $password);
+                $stmt->bind_param("ss", $user, $password);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $data = $result->fetch_assoc();
