@@ -54,11 +54,20 @@ textarea
     margin: 0px 10px 0px 5px;
 }
 
-button
+.button
 {
     width: 6em;
     height: 2em;
     border-radius: 5px;
+}
+
+a.button
+{
+    color: black;
+    font-size: smaller;
+    text-decoration: none;
+    padding: .35em 1.5em;
+    border: 2px solid black;
 }
 
 .email_form td, th 

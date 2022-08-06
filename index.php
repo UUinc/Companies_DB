@@ -151,7 +151,7 @@
                             ?>
                     </select> 
 
-                    <input type="submit" name="filter_btn" value="filter" />
+                    <input class="button" type="submit" name="filter_btn" value="filter" />
                 </form>
             </div>
         </div>
@@ -218,7 +218,7 @@
                         <th>Industry</th>
                         <th>City</th>
                         <th>Email</th>
-                        <th>Adress</th>
+                        <th>Address</th>
                         <th>Telephone</th>
                         <th>Website</th>
                       </tr>";
@@ -240,7 +240,7 @@
                     echo "<td>".$industry['industry_name']."</td>";
                     echo "<td>".$city['city_name']."</td>";
                     echo "<td class=\"company_email\">".$row['email']."</td>";
-                    echo "<td>".$row['adress']."</td>";
+                    echo "<td>".$row['address']."</td>";
                     echo "<td>".$row['telephone']."</td>";
                     echo "<td>".$row['website']."</td>";
                     echo "</tr>";
@@ -261,7 +261,7 @@
                         <table class="email_form">
                             <tr>
                                 <td>Username:</td>
-                                <td><input id="username" type="email" name="emailFrom" placeholder="abc@test.com"/></td>
+                                <td><input id="username" type="email" name="emailFrom" placeholder="abc@example.com"/></td>
                             </tr>
                             <tr>
                                 <td>Password:</td>
@@ -287,7 +287,7 @@
                 <br/>
                 <div class="container">
                     <div>
-                        <button name="send_btn" onclick="sendEmail()" onclick="hideSuccessMessage()">send</button>
+                        <button class="button" name="send_btn" onclick="sendEmail()" onclick="hideSuccessMessage()">send</button>
                     </div>
                 </div>
             </div>
