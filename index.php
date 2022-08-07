@@ -362,7 +362,7 @@
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
-              <div id="message-output"></div>
+              <div id="success_message"></div>
             </div>
             <div class="text-center"><button type="button" onclick="sendEmail()" onclick="hideSuccessMessage()">Send</button></div>
           </form>
