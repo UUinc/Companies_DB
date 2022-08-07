@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    $auth = (isset($_SESSION['auth']) ? $_SESSION['auth'] : false);
+    if(!$auth)
+    {
+        header('location:login.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,15 +40,7 @@
 </head>
 
 <body>
-    <?php require_once 'connect.php'; ?>
-        <?php 
-            session_start();
-            if(!$_SESSION['auth'])
-            {
-                header('location:login.php');
-            }
-    ?>
-
+  <?php require_once 'connect.php'; ?>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">

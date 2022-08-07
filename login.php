@@ -1,3 +1,49 @@
+<?php require_once 'connect.php'; ?>
+<?php
+    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['login_btn']))
+    {
+        $user = GetUser();
+        $password = GetPassword();
+
+        //test if login info is correct 
+        $sql = "SELECT count(*) FROM login WHERE user = ? And password = ?";
+        $stmt = mysqli_prepare($link,$sql);
+        $stmt->bind_param("ss", $user, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = $result->fetch_assoc();
+
+        if($data['count(*)'] == 0)
+        {
+            echo "<p class=\"aligncenter\" style=\"color:red\">wrong username or password<p>";
+        }
+        else
+        {
+            session_start();
+            $_SESSION['auth'] = 'true';
+            header('location:admin.php');
+        }
+    }
+    function GetUser()
+    {
+        if(isset($_POST['login_btn']))
+        {
+            $user = $_POST['username']; 
+            return $user;         
+        }
+        return 0;
+    }
+    function GetPassword()
+    {
+        if(isset($_POST['login_btn']))
+        {
+            $password = $_POST['password']; 
+            return $password;               
+        }
+        return 0;
+    }
+?>
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,53 +124,6 @@
         </div>
       </div>
     </section>
-
-    <?php require_once 'connect.php'; ?>
-    <?php
-        if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['login_btn']))
-        {
-            $user = GetUser();
-            $password = GetPassword();
-
-            //test if login info is correct 
-            $sql = "SELECT count(*) FROM login WHERE user = ? And password = ?";
-            $stmt = mysqli_prepare($link,$sql);
-            $stmt->bind_param("ss", $user, $password);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $data = $result->fetch_assoc();
-
-            if($data['count(*)'] == 0)
-            {
-                echo "<p class=\"aligncenter\" style=\"color:red\">wrong username or password<p>";
-            }
-            else
-            {
-                session_start();
-                $_SESSION['auth'] = 'true';
-                header('location:admin.php');
-            }
-        }
-        function GetUser()
-        {
-            if(isset($_POST['login_btn']))
-            {
-                $user = $_POST['username']; 
-                return $user;         
-            }
-            return 0;
-        }
-        function GetPassword()
-        {
-            if(isset($_POST['login_btn']))
-            {
-                $password = $_POST['password']; 
-                return $password;               
-            }
-            return 0;
-        }
-    ?>
-
     <div class="space">
     </div>
   </main><!-- End #main -->
