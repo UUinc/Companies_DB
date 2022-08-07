@@ -1607,7 +1607,7 @@ td, th
   padding: 10px 12px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button {
   background: #47b2e4;
   border: 0;
   padding: 12px 34px;
@@ -1616,7 +1616,7 @@ td, th
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button:hover {
   background: #209dd8;
 }
 

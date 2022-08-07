@@ -364,7 +364,7 @@
               <div class="sent-message">Your message has been sent. Thank you!</div>
               <div id="message-output"></div>
             </div>
-            <div class="text-center"><button type="submit" onclick="sendEmail()" onclick="hideSuccessMessage()">Send</button></div>
+            <div class="text-center"><button type="button" onclick="sendEmail()" onclick="hideSuccessMessage()">Send</button></div>
           </form>
         </div>
       </div>
