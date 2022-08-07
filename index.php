@@ -308,7 +308,7 @@
               echo "<td class=\"company_email\">".$row['email']."</td>";
               echo "<td>".$row['address']."</td>";
               echo "<td>".$row['telephone']."</td>";
-              echo "<td>".$row['website']."</td>";
+              echo "<td><a href=\"".$row['website']."\" target=\"_blank\">".$row['website']."</a></td>";
               echo "</tr>";
           }
           echo "</table>";
