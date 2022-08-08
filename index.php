@@ -277,6 +277,8 @@
           }
 
           $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+        
+          echo "<div style=\"overflow-x:auto;\">";
           echo "<table class=\"table_deco\">";
           //header of the table
           echo "<tr>
@@ -312,6 +314,7 @@
               echo "</tr>";
           }
           echo "</table>";
+          echo "</div>";
         ?>
       </div>
     </section>
