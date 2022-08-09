@@ -260,22 +260,31 @@
 
           if($industry == 0 and $city == 0)
           {
-              $sql = "SELECT * FROM companies";
+              $sql = "SELECT * FROM companies ORDER BY company_name";
+              $comapnies_number = "SELECT COUNT(*) FROM companies";
           }
           elseif($industry == 0)
           {
-
-              $sql = "SELECT * FROM companies WHERE city_id = ".$city;
+              $sql = "SELECT * FROM companies WHERE city_id = ".$city." ORDER BY company_name";
+              $comapnies_number = "SELECT COUNT(*) FROM companies WHERE city_id = ".$city;
           }
           elseif($city == 0)
           {
-              $sql = "SELECT * FROM companies WHERE industry_id = ".$industry;
+              $sql = "SELECT * FROM companies WHERE industry_id = ".$industry." ORDER BY company_name";
+              $comapnies_number = "SELECT COUNT(*) FROM companies WHERE industry_id = ".$industry;
           }
           else
           {
-              $sql = "SELECT * FROM companies WHERE industry_id = ".$industry." and city_id = ".$city;
+              $sql = "SELECT * FROM companies WHERE industry_id = ".$industry." and city_id = ".$city." ORDER BY company_name";
+              $comapnies_number = "SELECT COUNT(*) FROM companies WHERE industry_id = ".$industry." and city_id = ".$city;
           }
-
+          
+          //get the number of companies in db
+          $result = mysqli_query($link, $comapnies_number);
+          $number = mysqli_fetch_array($result);
+          echo "<p class=\"text-center\">companies found : ".$number['COUNT(*)']."</p>";
+            
+          //get records from db
           $result = mysqli_query($link, $sql) or die(mysqli_error($link));
         
           echo "<div style=\"overflow-x:auto;\">";
