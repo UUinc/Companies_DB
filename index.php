@@ -318,7 +318,7 @@
               echo "<td>".$city['city_name']."</td>";
               echo "<td class=\"company_email\"><a href=\"mailto:".$row['email']."\">".$row['email']."</a></td>";
               echo "<td>".$row['address']."</td>";
-              echo "<td>".$row['telephone']."</td>";
+              echo "<td><a href=\"tel:".$row['telephone']."\">".$row['telephone']."</a></td>";
               echo "<td><a href=\"".$row['website']."\" target=\"_blank\">".$row['website']."</a></td>";
               echo "</tr>";
           }
