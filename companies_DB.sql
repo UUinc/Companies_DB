@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 10, 2022 at 12:23 PM
+-- Generation Time: Aug 10, 2022 at 08:37 PM
 -- Server version: 10.5.16-MariaDB
 -- PHP Version: 7.3.32
 
@@ -201,7 +201,8 @@ INSERT INTO `city` (`city_id`, `city_name`) VALUES
 (162, 'Bni Frassen'),
 (163, 'Tifariti'),
 (164, 'Zawit Al Bour'),
-(165, 'ONLINE');
+(165, 'ONLINE'),
+(166, 'Had Soualem');
 
 -- --------------------------------------------------------
 
@@ -230,13 +231,13 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (3, 'LLC', NULL, NULL, NULL, NULL, 3, 1),
 (4, 'AGRO FOOD', NULL, 'Qt Sidi Ghanem-102, Route de Safi- 40110 Marrakech', NULL, NULL, 4, 3),
 (5, 'Aircelle Maroc', NULL, 'BP 80 Technopôle Nouaser - Casablanca', NULL, NULL, 5, 1),
-(6, 'Centrelec', NULL, '34, Bd Moulay Slimane Casablanca', NULL, NULL, 6, 1),
+(6, 'Centrelec', 'ghennami212@gmail.com', '34, Bd Moulay Slimane Casablanca', '+212 522 34 57 00', 'http://centrelec.ma', 6, 1),
 (7, 'SIMACOM', NULL, 'Z.I. Ouled Saleh, Secteur 135 Lot 85, Bouskoura', NULL, NULL, 4, 1),
 (8, 'OCP - Benguerir', NULL, 'Correon Industriel- Benguerir- Maroc', NULL, NULL, 2, 5),
 (9, 'SOLABRIQ', NULL, 'Km 5 - CR jakma- Rn de Beni Mellal N°13 Berrechid', NULL, NULL, 8, 6),
 (11, 'SI3 - MARRAKECH', NULL, 'Lot 167 PI sidighanem Marrakech', NULL, NULL, 9, 3),
-(26, 'SOMACA- RENAULT', NULL, NULL, NULL, NULL, 10, 1),
-(27, 'SUTA- Groupe COSUMAR', NULL, NULL, NULL, NULL, 11, 29),
+(26, 'SOMACA- RENAULT', NULL, 'Autoroute Casa/rabat, Km12- Casablanca', NULL, NULL, 10, 1),
+(27, 'SUTA- Groupe COSUMAR', 'recrutement@cosumar.co.ma', 'km.6 route de Marrakech - KmisOuledAyad - BP80 - 23000 BeniMellal', NULL, 'https://www.cosumar.co.ma', 11, 29),
 (28, 'SEWS CABIND MAROC- SAS ', NULL, NULL, NULL, NULL, 10, 1),
 (29, 'ONEE', NULL, NULL, NULL, NULL, 7, 3),
 (30, 'Société Métallurgique d\'Imiter (SMI)', NULL, 'BP 30 Tinghir', NULL, NULL, 12, 1),
@@ -245,7 +246,7 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (33, 'CIMENT DE L\'ATLAS', 'contact@cimat.ma', '28, La Colline II, Sidi Maârouf Casablanca - Maroc', '+212 522 67 75 00', 'https://www.cimat.ma', 9, 1),
 (34, 'ATLAS COUSCOUS', NULL, 'Zone industriel. Sidi Ghanem,lot 124- 40010  Marrakech', NULL, NULL, 4, 3),
 (35, 'Fujikura', 'tfo.maroc@tfosolutions.ma', 'Kenitra Lots 216, 217, 218 et 219 Atlantic Free Zone RN 4 Commune Amer Saflia Kenitra', '+212 522 99 55 98', 'https://www.fujikura.co.jp/eng/', 10, 10),
-(36, 'Centrale laitière', NULL, 'route de BeniMellal , km 2 FKIH BEN SALAH', NULL, NULL, 4, 3),
+(36, 'Centrale laitière', 'sighidi@centralelaitiere.com', 'route de BeniMellal , km 2 FKIH BEN SALAH', '+212 800 09 20 20', 'https://corporate.danone.ma', 4, 3),
 (37, 'PASTOR S.A ', NULL, '49, Rue Ennasrine- Casablanca', NULL, NULL, 14, 1),
 (38, 'Les GRANDS Moulins Du Tensift', NULL, '359, Q.I. Sidi Ghanem - Marrakech', NULL, NULL, 4, 3),
 (39, 'Marsa maroc casablanca', NULL, NULL, NULL, NULL, 15, 1),
@@ -267,7 +268,7 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (55, 'APTIV TANGER (DELPHI)', NULL, NULL, NULL, NULL, 10, 7),
 (56, 'FAME TECHNOLOGY', NULL, '52 lotiss. Amine 1°ét. Ouled Haddou Hay sidi maarouf 1', NULL, NULL, 50, 1),
 (57, 'COLORADO', NULL, 'Route MlyThami km 15 commune rurale OuladAzouz Dar Bouazza', NULL, NULL, 31, 1),
-(58, 'SPHINX ELECTRIC', NULL, NULL, NULL, NULL, 32, 1),
+(58, 'SPHINX ELECTRIC', NULL, '13, Rue Recroix, Belvdère, Casablanca', NULL, NULL, 32, 1),
 (59, 'ONCF RABAT', NULL, '8bis, rue abderrahmane el rafiki agdal Rabat', NULL, NULL, 33, 2),
 (60, 'MANAGEM', NULL, NULL, NULL, NULL, 34, 13),
 (61, 'RICHBOND', NULL, 'km 11.7 autoroute casa-rabat CASABLANCA', NULL, NULL, 24, 1),
@@ -311,8 +312,8 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (99, 'IRIS DOMOTOQUE ELJADIDA', NULL, 'Route de Marrakech, Près de centrale laitière, N° 10  Lot M\'hrech, EL JADIDA', NULL, 'http://www.iris-domotique.com', 57, 9),
 (100, 'MAPICER GROUPE SNEF', NULL, '257 lot lina sidi maarouf CP 20190 Casablanca', NULL, NULL, 58, 1),
 (101, 'S.B.G.S AGADIR', NULL, 'zone industrielle Tassila PB 135 AGADIR', NULL, NULL, 59, 11),
-(102, 'TAQA MOROCCO', NULL, NULL, NULL, NULL, 7, 1),
-(103, 'SMART-ELECTROTEC', NULL, 'douar koléa centre kolea AGADIR', NULL, NULL, 60, 11),
+(102, 'TAQA MOROCCO', NULL, 'BP 95 SIDI BOUZID ELJADIDA', NULL, NULL, 7, 1),
+(103, 'SMART-ELECTROTEC', 'contact@smart-electrotec.com', 'Quartier Takaddoum Rue Oujda Koleaa BP N° 1259 Ait Melloul ZI 86150 Agadir', '+212 661 38 28 60', 'https://smart-electrotec.com', 60, 11),
 (104, 'SCHIELE MAROC', NULL, NULL, NULL, NULL, 61, 1),
 (105, 'BIG4COM', 'contact@big4com.com', 'BD. PRINCE MY ABDELLAH, B 15 N 85 MARRAKECH', '+212 668 40 58 01', 'https://big4com.com/', 16, 3),
 (106, 'UPSIDE SYSTEMS', 'contact@upsysmaroc.com', 'Borj Menara 2 porte A N° 23 Av.Abdelkarim Elkhattabi, Marrakech', '+212 524 42 36 00', 'https://www.upsysmaroc.com/', 50, 3),
@@ -320,7 +321,7 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (108, 'SHARP INFO', NULL, NULL, NULL, NULL, 50, 3),
 (109, 'CORPORATE SOFTWARE', NULL, NULL, NULL, NULL, 62, 1),
 (110, 'NAWARIT', NULL, 'Sidi Maârouf , CASABLANCA - Maroc', NULL, NULL, 62, 1),
-(111, 'YAZAKI TANGER', NULL, NULL, NULL, NULL, 10, 7),
+(111, 'YAZAKI TANGER', NULL, 'Lot 101 Zone Franche D Exportation Aeroport De Tanger, Route De Rabat, Tanger 90000, Maroc', NULL, NULL, 10, 7),
 (112, 'ACCOLAD Centre', NULL, NULL, NULL, NULL, 29, 1),
 (113, 'SPEEDWAY', NULL, '96 Boulevard d\'Anfa, Casablanca 20000, Maroc', NULL, NULL, 63, 1),
 (114, 'INFORMATION& TECHNOLOGIES', NULL, NULL, NULL, NULL, 50, 1),
@@ -335,7 +336,7 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (123, 'MANAGEM', 'recrutement@managemgroup.com', 'Twin Center, Tour A, Angle Boulevards Zerktouni and Al Massira Al Khadra  BP 5199, Casablanca', '+212 522 95 65 65', 'https://www.managemgroup.com', 12, 1),
 (124, 'RENAULT TANGER', NULL, 'Renault Tanger exploitation zone franche de  Melloussa1 commune de Melloussa province FahsAnjra Tanger', NULL, NULL, 10, 7),
 (125, 'OCP YOUSSOUFIA', NULL, 'bd Moulay Youssef, 46300,Youssoufia', NULL, NULL, 2, 17),
-(126, 'Comptoir general du dades', NULL, NULL, NULL, NULL, 9, 18),
+(126, 'Comptoir general du dades', NULL, 'Imm 83-84 lot Chemes 2 - Ouarzazate', NULL, NULL, 9, 18),
 (127, 'P PRIME', NULL, 'Centre de vie, Lot.C 73 A.I. Tassila - DCHIERAINEZEGUANE', NULL, NULL, 67, 11),
 (128, 'SAFILAIT (JIBAL)', NULL, NULL, NULL, NULL, 4, 1),
 (129, 'SILOGIK', 'contacts@silogik.net', 'ANGLE AVENUE YACOUB EL MANSOUR ET ALLAL EL FASSI IMMEUBLE OUIRIDA 53 ETAGE N°5 BUREAU 46', '+212 657 91 50 47', 'https://www.silogik.net/silogik/', 50, 3),
@@ -347,7 +348,7 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (135, 'RNDFY', 'hello@rndfy.com', 'Imm N°66, N°5, Hay El Fath, CYM, Rabat-MAROC', '+212 661 84 98 82', 'https://www.rndfy.com', 50, 2),
 (136, 'REBITECH', NULL, '77 rue abou al al azahar Quartier des hopitaux Casablanca', NULL, NULL, 68, 1),
 (137, 'Tensift', NULL, NULL, NULL, NULL, 70, 3),
-(138, 'TOURELEC sarl', NULL, NULL, NULL, NULL, 61, 1),
+(138, 'TOURELEC', NULL, '21 BD Lahcenoulder - Casablanca', NULL, NULL, 61, 1),
 (139, 'HÖTELIER', NULL, NULL, NULL, NULL, 64, 1),
 (140, 'VISEO', 'contact@viseo.com', 'Casanearshore 1100 bd Al Qods, Shore 23 plateau 701, Casablanca 20200, Maroc', '+212 529 00 73 30', 'https://www.viseo.com/fr/emea/casablanca', 50, 1),
 (141, 'COSUMAR Groupe', NULL, '8 rue Mouatamid Ibnou Abbad, BP 3098 Roches Noires Casablanca – Maroc', '+212 522 67 83 00', 'https://www.cosumar.co.ma', 11, 1),
@@ -360,7 +361,7 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (148, 'Carta solutions processing services', NULL, '4, rue Molière 2ème étage Racine Casablanca', NULL, NULL, 64, 1),
 (149, 'S2M', 'contact@s2m.ma', 'Casablanca Nearshore, Casa Nearshore Park – 2C – 306 Casablanca Nearshore، 1100 Bd El Qods, Casablanca 20270', '+212 522 87 83 00', 'https://s2mworldwide.com', 64, 1),
 (150, 'Global S2I', NULL, NULL, NULL, NULL, 64, 1),
-(151, 'BC SKILLS', NULL, NULL, NULL, NULL, 50, 4),
+(151, 'BC SKILLS', NULL, 'Avenue Mohamed Belkhadir, Safi', NULL, NULL, 50, 4),
 (152, 'Monark IT', NULL, NULL, NULL, NULL, 73, 3),
 (153, 'BEWEB', NULL, NULL, NULL, NULL, 72, 1),
 (154, 'Marrakech Software Solution', NULL, 'Appt 22, 4ème étage Résidence Warda B Rue Ibn Hanbal Hivernage MARRAKECH', NULL, NULL, 50, 3),
@@ -369,7 +370,7 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (157, 'Automelec – Casablanca', NULL, NULL, NULL, NULL, 36, 1),
 (158, 'BONTAZ – El Jadida', NULL, NULL, NULL, NULL, 10, 9),
 (159, 'CA2E MAROC – Casablanca', NULL, NULL, NULL, NULL, 36, 1),
-(160, 'Faurecia – Kenitra', NULL, NULL, NULL, NULL, 10, 10),
+(160, 'Faurecia – Kenitra', 'Faycal.Ghandri@gmail.com', NULL, NULL, 'https://www.faurecia.com', 10, 10),
 (161, 'Green Energy Park', NULL, NULL, NULL, NULL, 7, 5),
 (162, 'SEBN-MA – Tanger', NULL, NULL, NULL, NULL, 10, 7),
 (163, 'TE Connectivity Morocco – Tanger', NULL, NULL, NULL, NULL, 18, 7),
@@ -395,7 +396,7 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (183, 'Exelys', NULL, '375 technopark Casablanca', '+212 522 43 02 00', NULL, 72, 1),
 (184, 'Global Edge Advisors', NULL, '84 Avenue Abdelkarim El Khattabi - 40 000 - Marrakech-Médina (AR)', NULL, 'http://www.globaledgeadvisors.com/', 72, 3),
 (185, 'GUELIZ INSTITUT', 'contact@guelizinstitut.com', '62,70 Avenue Mohammed V Gueliz Marrakech Maroc .', '+212 525 07 21 41', 'http://guelizinstitut.com/', 76, 48),
-(186, 'IBM Application & Technologies', NULL, 'Casablanca Nearshore Park 1100bd al qods sidi Maarouf shore1 5ème étage Casablanca', NULL, NULL, 50, 1),
+(186, 'IBM Application & Technologies', 'najlaa.hachami@hotmail.fr', 'Casablanca Nearshore Park 1100bd al qods sidi Maarouf shore1 5ème étage Casablanca', NULL, 'https://www.ibm.com/ma-fr/employment', 50, 1),
 (187, 'Immeuble d\'Or ', NULL, '34 rue arabie saoudite angel 6 Q ibnsina -Temara', '+212 537 61 08 08', NULL, 1, 26),
 (188, 'Integral Consulting ', 'integral@integralc.com', '193, Avenue Hassan II 2ème étage Casablanca', '+212 522 20 24 07', 'http://www.integralc.com', 72, 1),
 (189, 'INTEL COM', NULL, '219 BD Zerktouni Angle BD Roudani 7ème ETAGE 20100 Casablanca', '+212 522 25 26 16', 'https://www.intelcom.co.ma/', 50, 1),
@@ -448,7 +449,48 @@ INSERT INTO `companies` (`company_id`, `company_name`, `email`, `address`, `tele
 (237, 'PLADER', 'plader@menara.ma', '229, z.i. Sidi Ghanem, rte de Safi - 40000 Marrakech', '+212 524 33 56 17', NULL, 25, 3),
 (238, 'Siemens Maroc', 'siemensma@siemens.com', 'Anfa Place Centre d’affaires “EST”, RDC Boulevard  de la cornice 20200 Casablanca', NULL, 'https://new.siemens.com/ma/fr.html', 57, 1),
 (239, 'Société Couscous Tensift (Socoten)', NULL, 'Quartier Industriel Azli , Lot. 18, Marrakech 40000,  Maroc', NULL, NULL, 4, 3),
-(240, 'Société Nouvelle de Volailles (S.N.V.)', 'snv@snv.ma', 'Avenue Hassan II, Zone industrielle, Témara, Maroc', '+212 537 74 00 45', 'https://www.snv.ma', 83, 26);
+(240, 'Société Nouvelle de Volailles (S.N.V.)', 'snv@snv.ma', 'Avenue Hassan II, Zone industrielle, Témara, Maroc', '+212 537 74 00 45', 'https://www.snv.ma', 83, 26),
+(241, 'ART ETUDE ET CONSEIL', NULL, 'App 5, Imm N197,CM DAOUDIATE MARRAKECH', NULL, NULL, 73, 3),
+(242, 'SOCOTEC MAROC', NULL, '20, bd Prince Moulay Abdallah, résid. Safae bloc A  MARRAKECH', '+212 522 40 13 60', 'https://www.socotec.fr', 18, 3),
+(243, 'Unit Consulting', NULL, '50 rue attirmidi - Casablanca', NULL, NULL, 73, 1),
+(244, 'HNP', NULL, 'Succursale 4ème étage, N°20 Res Harmonie 3, Angle Bd Abdelkrim Khatabi Marrakech, 40000', '+212 524 44 80 46', 'http://hnpmaroc.com', 72, 3),
+(245, 'BISCUITERIE MODERNE ZINE', 'contact@zinecapitalinvest.ma', 'Route Principal 3011 zone industrielle Sahel – Had  soualem', '+212 522 96 77 77', 'https://www.zinecapitalinvest.ma/BMZ.php', 84, 166),
+(246, 'EG ELECTRIC', NULL, 'Sokoma 1N° 835 – Marrakech', NULL, NULL, 50, 3),
+(247, 'Maroc Service Industriel  - Tanger', NULL, '2 AV Prince Héritière N9, 90000 - Tanger', NULL, NULL, 54, 7),
+(248, 'Safarelec', 'safarelec@menara.ma', 'Lote 324 zone industrielle 344 – Eljadida', '+212 523 35 10 60', NULL, 40, 9),
+(249, 'AUTELEC', 'autelec@autelec.ma', 'N°12 Res Fatima Zahra Rue Ibnou Adara Al Mourrakouchi, Casablanca', '+212 522 70 82 88', 'https://autelec.ma', 54, 1),
+(250, 'NOMAC MAROC', NULL, 'Avenue Mehdi Ben Barka - N°65 Souissi Rabat 10100', '+212537287878', 'https://www.nomac.com', 85, 2),
+(251, 'SMART-ELECTROTEC  -  AIT MELLOUL', 'contact@smart-electrotec.com', 'Quartier tkaddoum rue oujda kolea BP N1259 AIT MELLOUL', '+212 661 38 28 60', 'https://smart-electrotec.com', 60, 30),
+(252, 'Devoteam', 'yousra.guedira@devoteam.com', 'DEVOTEAM AFRICA 7, Rue Al Mariniyinne – Hassan 10020 Rabat Morocco', '+212 537 70 59 64', 'https://africa.devoteam.com', 50, 2),
+(253, 'Maroc Telecom', 'a.essemlali@iam.ma', 'Avenue Annakhil Hay Riad - Rabat - Maroc', '+212 537 71 90 00', 'https://www.iam.ma', 80, 2),
+(254, 'Sofac Crédit', 'abdelmahi@sofac.co.ma', '57 Boulevard Abdelmoumen Casablanca, 20000 Morocco', '+212 522 42 96 96', 'https://www.sofac.ma', 77, 1),
+(255, 'Centre Monétique Interbancaire (CMI)', 'rbenabdallah@cmi.co.ma', NULL, NULL, 'https://www.cmi.co.ma', 77, 165),
+(256, 'BULL MAROC', 'casus_ali@msn.com', '20270 Casanearshore Park, 1100, Bd Al Qods Shore 10, Plateau 001, Quartier Sidi Maarouf - Casablanca', '+212 529 01 42 00', 'www.bull.ma', 62, 1),
+(257, 'L’Oreal', 'RH.maroc@loreal.com', '17 Aman Street, Ex Caporal Beaux, Casablanca 20100', '+212 522 44 02 40', 'https://www.loreal.com/en/morocco', 17, 1),
+(258, 'Wafa Assurance', 'h.besri@wafaassurance.co.ma', NULL, NULL, 'https://www.wafaassurance.ma', 88, 165),
+(259, 'Cercle RH', 'basma.ghafir@yahoo.fr', 'Residence Riad Al Otors, D N°8, Bloc C, Avenue Annakhil, Hay Riad, Rabat', '+212 537 56 56 46', 'https://cerclerh.ma', 73, 2),
+(260, 'GROUPE WALILI D’INVESTISSEMENT', 'alaoui.ismaili.g1@gmail.com', '227, Bd d’Anfa, Casablanca', '+212 522 39 71 39', 'https://groupewalili.com', 73, 1),
+(261, 'OXIA', 'chehin.gharsallah@oxia-group.com', NULL, NULL, 'https://www.wevioo.com', 18, 1),
+(262, 'CDG RABAT', 'Chennaoui@cdg.ma', 'Tour Mamounia, Place Moulay Hassan Rabat - Maroc', '+212 537 66 52 52', 'https://www.cdgcapital.ma', 77, 2),
+(263, 'KPMG Maroc', 'm.barbe@kpmg.co.ma', NULL, NULL, NULL, 77, 165),
+(264, 'Wafasalaf', 'hraouia_amal@yahoo.fr', '72, angle rue Ram Allah et bd Abdelmoumen, Casablanca', '+212 522 54 51 51', 'https://www.wafasalaf.ma', 77, 1),
+(265, 'SCRH GROUP', 'siham1_ma@yahoo.fr', NULL, NULL, 'https://scrhgroup.com/espace-candidats', 26, 165),
+(266, 'AXA ASSURANCE MAROC', 'lamya.hadji@axa.ma', '120 122 AVENUE HASSAN II CASABLANCA, 20070 Morocco', '+212 522 88 92 92', 'https://www.axa.ma', 88, 1),
+(267, 'Deloitte Maroc', 'sbuzinkay@deloitte.co.ma', '288, Bd Zerktouni, Casablanca, Grand Casablanca, MA', NULL, 'http://www.deloitte.co.ma', 73, 1),
+(268, 'Colas Rail Maroc', 'mustaphahamdani@hotmail.fr', 'Route de Meknès – Ain Houala – 11110 Salé – Maroc.', NULL, 'https://colasrail.com/notre-presence-dans-le-monde/maroc', 13, 21),
+(269, 'BMCI - Groupe BNP Paribas', 'bahiya.hanoun@gmail.com', NULL, NULL, 'https://www.bmci.ma/nous-connaitre/home-recrutement', 77, 1),
+(270, 'AXA Services Maroc', 'halima_hantoum@ymail.com', NULL, NULL, 'https://www.axaservices.ma', 50, 165),
+(271, 'SNOP Maroc', 'rharis@snop.fr', NULL, NULL, 'https://jobs.snop.eu/go/Morocco/8544602/', 55, 7),
+(272, 'ONP', 'fz.hermani@gmail.com', '15, rue Lieutenant Mahroud B.P. 16243 - 20300 Casablanca', '+212 522 24 05 51', 'http://www.onp.ma', 89, 1),
+(273, 'Attijariwafa bank', 'hilal.mariem@gmail.com', '2, Boulevard Moulay Youssef, 20 000 Casablanca, MAROC', '+212 522 29 88 88', 'https://www.attijariwafabank.com', 77, 1),
+(274, 'APM TERMINALS TANGIER', 'assid.houbane@gmail.com', 'one Franche, Ksar Al Majaz Oued R’Mel, Commune Anjra, Route de Fenideq, BP 216, Ksar Sghir', '+212 531 06 11 00', 'https://www.apmterminals.com/en/tangier', 18, 7),
+(275, 'G4S Maroc', 'saraibenmoussa@gmail.com', '24, LOTISSEMENT LA COLLINE SIDI MAAROUF – CASABLANCA MAROC', '+212 522 49 74 00', 'https://www.g4s.com/fr-ma', 38, 1),
+(276, 'Groupe Dislog', 'widad.idrissi@hotmail.com', '3 Boulevard Al Massira Al Khadra, Casablanca 20100', '+212 520 00 20 60', 'https://www.spe-capital.com', 91, 1),
+(277, 'WAFA GESTION', 'ad.idrissi@gmail.com', '416, Mustapha El Maani Street - Casablanca', '+212 522 26 63 79', 'https://www.wafagestion.com', 77, 1),
+(278, 'URBANOS Maroc', 'issam.ihsane@gmail.com', 'Boulevard Moulay Ismail et Route de Rabat ( r.p. 1), Km 7, Ain Sebâa , 20250', '+212 520 42 04 80', ' http://www.urbanos.com', 91, 1),
+(279, 'SIMON', 'ijaouharaten@gmail.com', 'Zone industrielle Gzenaya Lot 152/160 Route de Rabat Tanger', '+212 539 39 34 34', 'https://www.simonelectric.com/ma', 6, 7),
+(280, 'Groupe Koutoubia', 'live_your-life@hotmail.fr', NULL, NULL, 'https://www.koutoubia.net', 4, 3),
+(281, 'Uniforce informatique', 'k.jababdi@uniforce.ma', '320 Bd Zerktouni 20000 Casablanca, Morocco', '+212 522 29 72 40', 'http://www.uniforce.ma', 50, 1);
 
 -- --------------------------------------------------------
 
@@ -546,7 +588,15 @@ INSERT INTO `industry` (`industry_id`, `industry_name`) VALUES
 (80, 'Telecommunication'),
 (81, 'Packaging Supply Store'),
 (82, 'Paper & Forest Products'),
-(83, 'Animal feed');
+(83, 'Animal feed'),
+(84, 'Biscuit Factory'),
+(85, 'Operation & Maintenance'),
+(86, 'Consumer Finance'),
+(87, 'Beauty Products'),
+(88, 'Inssurance'),
+(89, 'Fishing'),
+(90, 'Security'),
+(91, 'Logistics & Supply');
 
 -- --------------------------------------------------------
 
@@ -605,19 +655,19 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
-  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=241;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
 
 --
 -- AUTO_INCREMENT for table `industry`
 --
 ALTER TABLE `industry`
-  MODIFY `industry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `industry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `login`
