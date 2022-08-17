@@ -38,6 +38,9 @@
 
       function sendEmail() 
       {
+          //show loading message
+          showLoadingMessage();
+        
           var email_success_counter = 0;
           var emails_length = 0;
 
@@ -58,7 +61,9 @@
               }
               else
               {
-                  email = emails[i].innerHTML;
+                  let text = emails[i].innerHTML;
+                  let length = (text.length - 22)/2;
+                  email = text.substr(16, length);
               }
 
               if(email != "")
@@ -76,7 +81,7 @@
                       To : email,
                       From : document.getElementById("username").value,
                       Subject : document.getElementById("subject").value,
-                      Body : document.getElementById("message").value
+                      Body : document.getElementById("message").value.replace(/\r?\n/g, '<br />')
                       }).then(function (message) {
                           email_success_counter++;
                           showSuccessMessage(email_success_counter, emails_length);
@@ -91,7 +96,7 @@
                       To : email,
                       From : document.getElementById("username").value,
                       Subject : document.getElementById("subject").value,
-                      Body : document.getElementById("message").value,
+                      Body : document.getElementById("message").value.replace(/\r?\n/g, '<br />'),
                       Attachments : [
                           {
                               name : file.name,
@@ -139,6 +144,17 @@
           {
               element.remove();
           }
+      }
+     
+      //show loading message
+      function showLoadingMessage()
+      {
+          hideSuccessMessage();
+          
+          var para = document.createElement("p");
+          para.className = "message-output";
+          para.innerHTML = "<br/>Loading...";
+          document.getElementById("success_message").appendChild(para);
       }
   </script>
 
