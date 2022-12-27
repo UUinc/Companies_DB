@@ -12,6 +12,10 @@ Web app link : https://companies-database.000webhostapp.com/
 ![Home](https://user-images.githubusercontent.com/63449913/183288007-23c39abe-67c2-4224-a1b7-4ac9001da4d1.JPG)
 ![SendEmail](https://user-images.githubusercontent.com/63449913/183288011-4e2bf45d-b809-4eea-a67d-97051b9b7e32.JPG)
 
+### Run server
+```
+php -S localhost:8000
+```
 
 if you have any question feel free to ask :smile:
 ### Contacts
